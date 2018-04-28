@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/public/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="/public/css/index.css" media="all">
+    <link rel="icon" href="/public/favicon.ico"/>
+</head>
+<body>
+<div class="chatroom">
+    <ul class="chatroom-tribes" id="roomTable">
+        <li class="chatroom-tribe current" data-id="0" data-type="1">
+            <span class="name">公共频道</span>
+            <span class="count">0</span>
+        </li>
+    </ul>
+    <div class="chatroom-pannels">
+        <div class="chatroom-pannel-bd" id="roomContent">
+            <div class="chatroom-item current" data-flag="0-2">
+            </div>
+        </div>
+        <div class="chatroom-pannel-ft">
+            <textarea type="text" class="chatroom-input" placeholder="按 trl+Enter 发送"></textarea>
+            <span class="chatroom-send-btn" id="send">发送</span>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/public/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/public/js/index.js"></script>
+</body>
+</html>
