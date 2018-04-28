@@ -1,4 +1,4 @@
-package socket
+package chatroot
 
 import (
 	"encoding/json"
