@@ -5,6 +5,8 @@ import (
 	"github.com/gorilla/websocket"
 	"net/http"
 	"crypto/md5"
+	"strconv"
+	"encoding/json"
 )
 
 var upgrader = websocket.Upgrader{}
@@ -16,7 +18,26 @@ func Main() {
 	http.HandleFunc("/", indexHandle)
 	http.HandleFunc("/ws", wsHandel)
 	http.HandleFunc("/login", loginHandel)
+	http.HandleFunc("/user/get", getUcInfo)
 	http.ListenAndServe(":3000", nil)
+}
+
+func getUcInfo(w http.ResponseWriter, r *http.Request)  {
+	r.ParseForm()
+	name := r.FormValue("name")
+	if name == "" {
+		AjaxReturn(w, 3)
+		return
+	}
+	account ,err := getAccountByName(name)
+	if err != nil {
+		AjaxReturn(w, 3)
+		return
+	}
+	m := NewMessage(0, strconv.Itoa(account.id))
+	ms, _ := json.Marshal(m)
+	w.Header().Set("Content-Type", "application/json; charset=utf-8")
+	w.Write(ms)
 }
 
 func loginHandel(w http.ResponseWriter, r *http.Request) {
