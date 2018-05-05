@@ -1,4 +1,4 @@
-package chatroot
+package chatroom
 
 import (
 	"github.com/gorilla/websocket"
