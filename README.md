@@ -1,6 +1,6 @@
-# chatroot
-chat root
+# chatroom
+chat room
 聊天室
 
 运行方式
-chatroot.Main()
+chatroom.Main()
